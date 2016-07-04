@@ -1,0 +1,191 @@
+@media screen and (max-width: 1250px) and (min-width: 651px) {
+  #info {
+    >div {
+      width: 50%;
+      &:first-child {
+        margin: 0 0 50px 0;
+      }
+      &:nth-child(2) {
+        margin: 0 0 50px 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1180px) and (min-width: 768px) {
+  #topStrip {
+    text-align: center;
+    h2 {
+      padding-right: 32px !important;
+      padding-left: 0 !important;
+    }
+  }
+  #social {
+    float: none !important;
+    display: inline-block;
+    padding-top: 53px;
+  }
+}
+@media screen and (max-width: 959px) {
+  #mobileDropdown {
+    a {
+      padding: 25px 5px !important;
+      letter-spacing: 1px !important;
+    }
+  }
+}
+@media screen and (max-width: 869px) {
+
+  .slideLeftElement {
+    float: none;
+    padding-left: 0;
+    margin: 0 auto 75px auto;
+    h2 {
+      text-align: center;
+    }
+    img {
+      position: static;
+      left: 0;
+    }
+  }
+  .slideRightElement {
+    float: none;
+    max-width: 370px;
+    padding: 30px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  #toggleDropdown {
+    display: block;
+    @include clearfix;
+    button {
+      float: right;
+      padding: 10px;
+      background: none;
+      border: none;
+      color: $socialHoverColor;
+      @include transition(color 1s ease-out);
+      &:before {
+        font-size: 36px;
+      }
+      &:focus {
+        outline: none;
+      }
+      &.active {
+        color: $topNavHoverColor;
+      }
+    }
+  }
+  #mobileDropdown {
+    overflow: hidden;
+    max-height: 0;
+    position: absolute;
+    z-index: 999;
+    @include transition(all 0.25s ease-out);
+    &.active {
+      max-height: 630px;
+    }
+    a {
+      display: block;
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+    li {
+      background-color: $navbarColor;
+      display: block !important;
+      &:last-child{
+        height: 50px;
+      }
+      button {
+        display: none;
+      }
+      form {
+        display: inline-block !important;
+        position: static;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-align: center;
+        input[type="submit"] {
+          float: none;
+          width: 75px;
+          padding: 6px;
+        }
+        input[type="search"] {
+          padding: 6px;
+          width: 200px;
+          float: none;
+        }
+      }
+    }
+  }
+  #topStrip {
+    text-align: center;
+    h2 {
+      float: none;
+      padding: 50px 0 0 0;
+    }
+  }
+  #logo {
+    float: none;
+    padding: 50px 0 0 0;
+  }
+  #social {
+    float: none;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+@media screen and (max-width: 650px) {
+  #info {
+    >div {
+      width: 100%;
+      &:first-child {
+        margin: 0 0 50px 0;
+      }
+      &:nth-child(2) {
+        margin: 0 0 50px 0;
+      }
+      &:nth-child(3) {
+        margin: 0 0 50px 0;
+      }
+      &:last-child {
+        margin: 0 0 50px 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+
+  .slideRightElement {
+    padding: 15px;
+    max-width: 270px;
+    h3 {
+      letter-spacing: 0;
+    }
+  }
+}
+@media screen and (max-width: 374px) {
+
+  .slideLeftElement {
+    h2 {
+      font-size: 28px;
+    }
+  }
+  .slideRightElement {
+    width: 100%;
+    padding: 20px;
+  }
+  #welcome {
+    letter-spacing: 3px;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    top: 90%;
+  }
+}
+@media screen and (max-width: 345px){
+  footer {
+    h3 {
+      font-size: 18px;
+    }
+  }
+}

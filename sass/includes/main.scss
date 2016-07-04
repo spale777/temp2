@@ -1,0 +1,494 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+i {
+  &:before {
+    margin-left: 0 !important;
+  }
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: $fontOpenSans;
+}
+html, body {
+  position: relative;
+}
+.container-fluid {
+  overflow: hidden;
+  @include clearfix;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+#toggleDropdown {
+  display: none;
+}
+nav {
+  background-color: $navbarColor;
+}
+#mobileDropdown {
+  text-align: center;
+  width: 100%;
+  a {
+    display: block;
+    padding: 25px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: $fontOpenSans;
+    color: $topStripGray;
+    letter-spacing: 2px;
+    @include transition(all 0.25s ease-in-out);
+    &:hover{
+      color: $topNavHoverColor;
+      background-color: white;
+    }
+  }
+  li {
+    display: inline-block;
+    &:last-child{
+      position: relative;
+    }
+    button {
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+      color: $topStripGray;
+      padding: 19px 18px 23px 18px;
+      @include transition(all 0.5s ease-in-out);
+      i {
+        position: relative;
+        font-size: 24px;
+        bottom: -4px;
+      }
+      &:hover {
+        color: $topNavHoverColor;
+        background-color: white;
+      }
+    }
+    form {
+      display: none;
+      @include position(absolute, 74px 17px null null);
+      min-width: 360px;
+      text-align: left;
+      @include clearfix;
+      &.active {
+        display: block;
+      }
+      input[type="submit"] {
+        background: none;
+        border: 1px solid $topStripGray;
+        float: right;
+        width: 20%;
+        outline: none;
+        font-family: $fontOpenSans;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 12px;
+        color: $topStripGray;
+        @include transition(outline-color 0.25s ease-in, color 0.25s ease-in);
+        &:hover {
+          color: $slideHeadingColor;
+          outline: #c1a259 solid 2px;
+          outline-offset: -2px;
+        }
+      }
+      input[type="search"] {
+        padding: 12px;
+        border: 1px solid $topStripGray;
+        font-size: 15px;
+        font-family: $fontOpenSans;
+        font-weight: 500;
+        color: $slideHeadingColor;
+        width: 10%;
+        @include transition(width 1s $ease-in-out-back);
+        &:focus{
+          outline: 2px solid $topNavHoverColor;
+        }
+        &.active {
+          width: 70%;
+        }
+      }
+      label {
+        display: none;
+      }
+    }
+  }
+}
+#topStrip {
+  min-height: 145px;
+  overflow: hidden;
+  @include clearfix;
+  h2 {
+    float: right;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: $fontOpenSans;
+    color: $topStripGray;
+    padding-top: 62px;
+    padding-right: 67px;
+    padding-left: 43px;
+  }
+}
+#logo {
+  float: left;
+  padding-top: 26px;
+  padding-left: 32px;
+  display: inline-block;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+#social {
+  float: right;
+  padding-top: 53px;
+  a {
+    display: inline-block;
+    @include transition(all 0.5s ease-in-out);
+    color: $topStripGray;
+    i:before {
+      font-size: 45px;
+    }
+    &:hover {
+      color: $socialHoverColor;
+    }
+    &:not(:last-child){
+      margin-right: 15px;
+    }
+  }
+}
+.swiper-container {
+  width: 100%;
+  height: 905px;
+  overflow: visible;
+}
+.swiper-slide {
+  width: 1180px;
+  height: 905px;
+}
+@media screen and (max-width: 1179px){
+  .swiper-slide {
+    width: 100%;
+  }
+}
+.backgroundContainer {
+  @include size(100%);
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.slideBkgd {
+  @include size(100%);
+  position: absolute;
+  @include filter(blur(5px));
+  @include transition(all 1s ease-in);
+  z-index: 99;
+}
+.swiper-slide-active {
+  .slideBkgd {
+    @include filter(blur(0px));
+  }
+}
+.swiper-button-prev {
+  left: 25px;
+}
+.swiper-button-next {
+  right: 25px;
+}
+#slide1-bkgd {
+  background: url("../../img/slide1.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+#slide2-bkgd {
+  background: url("../../img/slide2.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+#slide3-bkgd {
+  background: url("../../img/slide3.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+#slide4-bkgd {
+  background: url("../../img/slide4.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+/*
+  Ukoliko se ovo ukloni u chromu dolazi do pojavljivanja belih ivica prilikom tranzicije
+  Verovatno feathering koji se javlja prilikom blura i onda pokupi pozadinu koja je bela
+  u Firefoxu sve radi kako treba i bez ovog dela ispod
+*/
+#backgroundContainer1 {
+  background: url("../../img/slide1.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+#backgroundContainer2 {
+  background: url("../../img/slide2.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+#backgroundContainer3 {
+  background: url("../../img/slide3.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+#backgroundContainer4 {
+  background: url("../../img/slide4.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+// ----------------------------------NO CSS FILTER----------------------------------------//
+
+html.no-cssfilters{
+  #backgroundContainer1 {
+    background: none;
+  }
+  #backgroundContainer2 {
+    background: none;
+  }
+  #backgroundContainer3 {
+    background: none;
+  }
+  #backgroundContainer4 {
+    background: none;
+  }
+  #slide1-bkgd {
+    background: url("../../img/slide1b.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+  #slide2-bkgd {
+    background: url("../../img/slide2b.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+  #slide3-bkgd {
+    background: url("../../img/slide3b.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+  #slide4-bkgd {
+    background: url("../../img/slide4b.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+html.no-cssfilters {
+  .swiper-slide-active {
+    #slide1-bkgd {
+      background: url("../../img/slide1.jpg") no-repeat 50% 50%;
+      background-size: cover;
+    }
+    #slide2-bkgd {
+      background: url("../../img/slide2.jpg") no-repeat 50% 50%;
+      background-size: cover;
+    }
+    #slide3-bkgd {
+      background: url("../../img/slide3.jpg") no-repeat 50% 50%;
+      background-size: cover;
+    }
+    #slide4-bkgd {
+      background: url("../../img/slide4.jpg") no-repeat 50% 50%;
+      background-size: cover;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------//
+
+.slideContentContainer {
+  @include clearfix;
+  position: relative;
+  z-index: 999;
+}
+.slideLeftElement {
+  padding-left: 66px;
+  padding-top: 65px;
+  float: left;
+  text-align: center;
+  max-width: 450px;
+  position: relative;
+  z-index: 999;
+  h2 {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: $fontOpenSans;
+    letter-spacing: 6px;
+    text-align: left;
+    margin-bottom: 27px;
+  }
+  img {
+    text-align: center;
+    position: relative;
+    left: -8px;
+  }
+}
+.slideRightElement {
+  float: right;
+  max-width: 370px;
+  padding: 31px 36px 42px 36px;
+  background-color: white;
+  border-top: 7px solid $slideCardBorderColor;
+  margin-top: -5px;
+  margin-right: 50px;
+  position: relative;
+  z-index: 999;
+  h3 {
+    font-size: 20px;
+    line-height: 30px;
+    font-family: $fontOpenSans;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: $socialHoverColor;
+    margin-bottom: 31px;
+  }
+  p {
+    font-family: $fontRaleway;
+    font-size: 15px;
+    font-weight: 500;
+    color: $slideParagrafColor;
+    margin-bottom: 32px;
+  }
+  h5 {
+    color: $slideParagrafColor;
+    font-family: $fontRaleway;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 11px;
+  }
+  li {
+    display: inline-block;
+    &:first-child{
+      margin-bottom: 14px;
+    }
+  }
+  a {
+    font-family: $fontRaleway;
+    color: $slideParagrafColor;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 40px;
+    display: block;
+    background-color: $navbarColor;
+    border-radius: 5px;
+  }
+}
+#welcome {
+  font-size: 36px;
+  font-family: $fontOpenSans;
+  font-weight: 600;
+  color: $welcomeTextColor;
+  max-width: 1180px;
+  text-align: center;
+  border-top: 7px solid $slideCardBorderColor;
+  margin: 0 auto;
+  padding-top: 72px;
+  padding-bottom: 73px;
+  letter-spacing: 7px;
+}
+#info {
+  text-align: center;
+  @include clearfix;
+  >div {
+    float: left;
+    &:first-child {
+      float: left;
+      margin-left: 195px;
+    }
+    &:nth-child(2) {
+      margin-left: 151px;
+    }
+    &:nth-child(3) {
+      margin-left: 112px;
+    }
+    &:last-child {
+      margin-left: 151px;
+    }
+    width: 290px;
+  }
+  div.iconCircle {
+    text-align: center;
+    background-color: $navbarColor;
+    @include size(145px);
+    border-radius: 100%;
+    color: $bottomIconsColor;
+    margin: 0 auto;
+    line-height: 145px;
+  }
+  h3 {
+    margin-top: 26px;
+    margin-bottom: 31px;
+    font-size: 20px;
+    font-family: $fontOpenSans;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: $topStripGray;
+  }
+  p {
+    font-size: 15px;
+    font-family: $fontRaleway;
+    font-weight: 500;
+    color: $slideParagrafColor;
+    max-width: 290px;
+    margin: 0 auto;
+  }
+  i {
+    &:before{
+      font-size: 74px;
+      margin: 0;
+    }
+  }
+}
+footer {
+  text-align: center;
+  h3 {
+    max-width: 1180px;
+    font-size: 20px;
+    font-family: $fontOpenSans;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: $topNavHoverColor;
+    padding-top: 65px;
+    padding-bottom: 21px;
+    border-top: 7px solid $slideCardBorderColor;
+    margin: 93px auto 0 auto;
+  }
+  li {
+    font-size: 15px;
+    font-family: $fontRaleway;
+    font-weight: 500;
+    color: $slideParagrafColor;
+    font-style: normal;
+    display: inline-block;
+    &:not(:last-child), :not(:nth-child(4)) {
+      padding: 10px 12px;
+    }
+    a {
+      color: $slideParagrafColor;
+      padding: 10px 12px;
+      @include transition(all 0.3s ease-in);
+      &:hover {
+        color: $socialHoverColor;
+      }
+    }
+  }
+  ul {
+    margin-bottom: 77px;
+  }
+}
+@media screen and (max-width: 1820px) {
+  #info {
+    >div {
+      width: 25%;
+      float: left;
+      &:first-child {
+        margin: 0;
+      }
+      &:nth-child(2){
+        margin: 0;
+      }
+      &:nth-child(3){
+        margin: 0;
+      }
+      &:last-child{
+        margin: 0;
+      }
+    }
+  }
+}
